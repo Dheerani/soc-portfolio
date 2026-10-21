@@ -85,6 +85,16 @@ Deployed a Dockerized Cowrie SSH Honeypot integrated with Wazuh SIEM to capture 
 - **Alert Triggered:** Rule 100500 fired at Level 8.
 - **Dashboard Visibility:** Alert visible in Wazuh Threat Hunting with extracted fields (`src_ip`, `username`, `password`).
 
+
+## Alerting & Integrations (Discord)
+
+To simulate a real-world SOC environment, I integrated Wazuh with Discord for real-time alerting.
+
+- **Custom Python Script:** Wrote a script (`custom-discord.py`) that hooks into Wazuh's integration module.
+- **Webhook:** Configured a Discord Webhook to receive alerts.
+- **Threshold:** Set the integration to trigger only for `Level 8` and above alerts to prevent noise.
+- **Result:** Whenever an attacker interacts with the Cowrie Honeypot, an immediate "🚨 SOC ALERT 🚨" notification is sent to Discord with the Rule ID, Description, and Attacker IP.
+
 ## Reports
 
 | # | Report | Attack Type | Alerts |
